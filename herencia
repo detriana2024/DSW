@@ -1,0 +1,63 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mavenproject5;
+
+// Clase base
+class Animal {
+    // Propiedad común a todos los animales
+    String nombre;
+
+    // Constructor de la clase base
+    public Animal(String nombre) {
+        this.nombre = nombre;
+    }
+
+    // Método común a todos los animales
+    public void hacerSonido() {
+        System.out.println("El animal hace un sonido.");
+    }
+
+    // Método para obtener el nombre del animal
+    public String getNombre() {
+        return nombre;
+    }
+}
+
+// Clase derivada
+class Perro extends Animal {
+
+    // Constructor de la clase derivada
+    public Perro(String nombre) {
+        super(nombre); // Llama al constructor de la clase base
+    }
+
+    // Sobrescribe el método de la clase base
+    @Override
+    public void hacerSonido() {
+        System.out.println("El perro ladra.");
+    }
+
+    // Método adicional específico de la clase derivada
+    public void jugar() {
+        System.out.println("El perro está jugando.");
+    }
+}
+
+// Clase principal para probar la herencia
+public class Main {
+    public static void main(String[] args) {
+        // Crea una instancia de la clase derivada
+        Perro miPerro = new Perro("Rex");
+
+        // Llama al método sobrescrito
+        miPerro.hacerSonido(); // Salida: El perro ladra.
+
+        // Llama al método de la clase base
+        System.out.println("Nombre del perro: " + miPerro.getNombre()); // Salida: Nombre del perro: Rex
+
+        // Llama al método específico de la clase derivada
+        miPerro.jugar(); // Salida: El perro está jugando.
+    }
+}
